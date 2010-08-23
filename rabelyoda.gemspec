@@ -23,8 +23,8 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.markdown",
      "VERSION",
-     "lib/rabelyoda/options.rb",
      "lib/rabelyoda/hash.rb",
+     "lib/rabelyoda/options.rb"
   ]
   s.homepage = %q{http://github.com/eploko/rabelyoda}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -39,16 +39,16 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<plist>, [">= 0"])
       s.add_runtime_dependency(%q<term-ansicolor>, [">= 0"])
-      s.add_runtime_dependency(%q<ya2yaml>, [">= 0.29.2"])
+      s.add_runtime_dependency(%q<ya2yaml>, [">= 0"])
     else
       s.add_dependency(%q<plist>, [">= 0"])
       s.add_dependency(%q<term-ansicolor>, [">= 0"])
-      s.add_dependency(%q<ya2yaml>, [">= 0.29.2"])
+      s.add_dependency(%q<ya2yaml>, [">= 0"])
     end
   else
     s.add_dependency(%q<plist>, [">= 0"])
     s.add_dependency(%q<term-ansicolor>, [">= 0"])
-    s.add_dependency(%q<ya2yaml>, [">= 0.29.2"])
+    s.add_dependency(%q<ya2yaml>, [">= 0"])
   end
 end
 
