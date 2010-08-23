@@ -5,39 +5,71 @@ require 'fileutils'
 require 'term/ansicolor'
 require 'tmpdir'
 require 'yaml'
+require 'ya2yaml'
+$KCODE = 'UTF8'
 
 include Term::ANSIColor
 
 require 'rabelyoda/options'
+require 'rabelyoda/hash'
 
 # Main block
 
 def main
   $config = RabelYoda::Options.parse
-  setup
-  print_config
-  FileUtils.rm_rf $config['tmp_dir'], :verbose => true
+  
+  load_ymls
+  populate_locales
+  save_ymls
+  
   success "All done!"
 end
 
 # Aux methods
 
-def setup
-  $config = {}
-  $config['tmp_dir'] = File.join Dir.tmpdir, "epl.rabelyoda.#{$$}"
-  $config['startwd'] = Dir.getwd
-  $config['time_badge'] = Time.now.utc.strftime('%Y%m%d_%H%M')
-end
-
-def print_config ; status "CONFIG" ; y $config ; end
 def exe(cmd) ; putcmd cmd ; system cmd ; end
 def putcmd(cmd) ; print magenta, "CMD: #{cmd}", reset, "\n" ; end
 def status(msg) ; print blue, "--- #{msg} ---", reset, "\n" ; end
 def success(msg) ; print green, bold, 'SUCCESS: ', msg, reset, "\n" ; end
 def error(msg) ; print red, bold, 'ERROR: ', msg, reset, "\n" ; exit 1 ; end
-def escape_cmd_args(args) ; args.collect{ |arg| "'#{arg}'"}.join(' ') ; end
 
 # Globbers
+
+def all_ymls
+  Dir.glob(File.join('config', 'locales', '*.yml'))
+end
+
+def locale_for_yml_filename(yml_filename)
+  yml_filename.scan(/([^\/\.]+)\.yml/)[0].to_s
+end
+
+# Workers
+
+def load_ymls
+  $locales = {}
+  all_ymls.each do |yml_filename|
+    locale_name = locale_for_yml_filename(yml_filename)
+    $locales[locale_name] = YAML::load_file(yml_filename)[locale_name]
+  end
+end
+
+def populate_locales
+  $locales.keys.each do |locale_name|
+    next if locale_name == 'en'
+    $locales[locale_name] = $locales['en'].locale_diff($locales[locale_name])
+  end
+end
+
+def save_ymls
+  FileUtils.mkdir_p File.join('config', 'locales.out'), :verbose => true
+  $locales.keys.each do |locale_name|
+    yml_filename = File.join('config', 'locales.out', "#{locale_name}.yml")
+    File.open(yml_filename, "w") do |file| 
+      file.puts($locales[locale_name].ya2yaml)
+    end
+    status yml_filename
+  end
+end
 
 main
 exit 0

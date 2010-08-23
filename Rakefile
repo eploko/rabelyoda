@@ -15,6 +15,7 @@ begin
     gem.default_executable = ['rabelyoda']
     gem.add_dependency "plist"
     gem.add_dependency "term-ansicolor"
+    gem.add_dependency "ya2yaml"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
