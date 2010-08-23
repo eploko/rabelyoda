@@ -1,20 +1,21 @@
-rabelyoda
-=========
+# rabelyoda
 
 A simple utility to push/pull l10n resources of a Rails project to/from the translators.
 
-How to Use
-==========
+## Hot to Install
 
-   cd your-rails-project-dir
-   rabelyoda
+    sudo gem install rabelyoda
+
+## How to Use
+
+    cd your-rails-project-dir
+    rabelyoda
 
 Checkout the `config/locales.out` folder for merged locale files. Each file, except the `en.yml`, will have new strings added with `[pls translate]` in the beginning. 
 
 All of the strings not found in `en.yml`, will be removed from `*.yml` as well.
 
-Note on Patches/Pull Requests
-=============================
+## Note on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -24,7 +25,6 @@ Note on Patches/Pull Requests
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-Copyright
-=========
+## Copyright
 
 Copyright (c) 2010 Andrey Subbotin. See LICENSE for details.
