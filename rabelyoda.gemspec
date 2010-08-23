@@ -16,14 +16,15 @@ Gem::Specification.new do |s|
   s.executables = ["rabelyoda"]
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.markdown"
   ]
   s.files = [
     "CHANGELOG",
      "LICENSE",
-     "README.rdoc",
+     "README.markdown",
      "VERSION",
      "lib/rabelyoda/options.rb",
+     "lib/rabelyoda/hash.rb",
   ]
   s.homepage = %q{http://github.com/eploko/rabelyoda}
   s.rdoc_options = ["--charset=UTF-8"]
