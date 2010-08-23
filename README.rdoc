@@ -2,6 +2,15 @@
 
 A simple utility to push/pull l10n resources of a Rails project to/from the translators.
 
+== How to Use
+
+cd your-rails-project-dir
+rabelyoda
+
+Checkout the config/locales.out folder for merged locale files. Each file, except the en.yml, will have new strings added with "[pls translate]" in the beginning. 
+
+All of the strings not found in en.yml, will be removed from *.yml as well.
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
