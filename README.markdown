@@ -15,6 +15,8 @@ Checkout the `config/locales.out` folder for merged locale files. Each file, exc
 
 All of the strings not found in `en.yml`, will be removed from `*.yml` as well.
 
+You can then give all these `locale.yml` files to your translators. When the translation is done just copy the translated file over the original one in `config/locales`, commit and deploy.
+
 ## Note on Patches/Pull Requests
  
 * Fork the project.
