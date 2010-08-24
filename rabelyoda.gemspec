@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rabelyoda}
-  s.version = "1.1.0"
+  s.version = "1.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrey Subbotin"]
-  s.date = %q{2010-08-23}
+  s.date = %q{2010-08-24}
   s.default_executable = ["rabelyoda"]
   s.description = %q{A simple utility to push/pull l10n resources of a Rails project to/from the translators}
   s.email = %q{andrey@subbotin.me}
@@ -31,6 +31,9 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{Rails project localization made easy}
+  s.test_files = [
+    "test/rabelyoda/hash_test.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
