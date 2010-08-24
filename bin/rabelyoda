@@ -65,7 +65,9 @@ def save_ymls
   $locales.keys.each do |locale_name|
     yml_filename = File.join('config', 'locales.out', "#{locale_name}.yml")
     File.open(yml_filename, "w") do |file| 
-      file.puts($locales[locale_name].ya2yaml)
+      result = {}
+      result[locale_name] = $locales[locale_name]
+      file.puts(result.ya2yaml)
     end
     status yml_filename
   end
