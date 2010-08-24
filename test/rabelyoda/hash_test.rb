@@ -28,15 +28,17 @@ module RabelYoda
 
     def test_locale_diff
       assert_equal @en.locale_diff(@ru), {
-        'department' => '[pls translate]Department',
+        'user' => "Пользователь", 
+        'company' => 'Компания',
         'position' => '[pls translate]Position',
+        'department' => '[pls translate]Department', 
         'activerecord' => {
-            'validations' => {
-              'name' => '[pls translate]Should contain only letters',
-              'email' => '[pls translate]Should be like email'
-            }
-          }
+          'validations' => {
+            'email' => '[pls translate]Should be like email', 
+            'name' => '[pls translate]Should contain only letters'
+          } 
         }
+      }
     end
   end
 end
