@@ -3,7 +3,6 @@
 require 'rubygems'
 require 'fileutils'
 require 'term/ansicolor'
-require 'tmpdir'
 require 'yaml'
 require 'ya2yaml'
 $KCODE = 'UTF8'
