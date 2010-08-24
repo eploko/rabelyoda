@@ -10,14 +10,11 @@ $KCODE = 'UTF8'
 
 include Term::ANSIColor
 
-require 'rabelyoda/options'
 require 'rabelyoda/hash'
 
 # Main block
 
 def main
-  $config = RabelYoda::Options.parse
-  
   load_ymls
   populate_locales
   save_ymls

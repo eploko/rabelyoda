@@ -23,8 +23,7 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.markdown",
      "VERSION",
-     "lib/rabelyoda/hash.rb",
-     "lib/rabelyoda/options.rb"
+     "lib/rabelyoda/hash.rb"
   ]
   s.homepage = %q{http://github.com/eploko/rabelyoda}
   s.rdoc_options = ["--charset=UTF-8"]
